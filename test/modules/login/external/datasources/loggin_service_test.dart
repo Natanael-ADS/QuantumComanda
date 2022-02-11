@@ -21,7 +21,7 @@ void main() {
   testWidgets('error - loggin service ...', (tester) async {
     when(req.get(any)).thenThrow(Exception());
 
-    final model = UserModel(name: "teste", password: "teste");
+    final model = UserModel(id: 1, password: "teste");
     final actual = await service.validateUser(model);
 
     expect(actual, isEmpty);
@@ -36,7 +36,7 @@ void main() {
       );
     });
 
-    final model = UserModel(name: "teste", password: "teste");
+    final model = UserModel(id: 1, password: "teste");
     final actual = await service.validateUser(model);
 
     expect(actual, isNotEmpty);

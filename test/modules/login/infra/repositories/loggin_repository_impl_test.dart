@@ -14,10 +14,7 @@ void main() {
   testWidgets('erro - loggin repository impl ...', (tester) async {
     when(datasource.validateUser(any)).thenThrow(Exception());
 
-    final actual = await repository.validate(User(
-      name: 'teste',
-      password: 'teste',
-    ));
+    final actual = await repository.validate(User(id: 1, password: 'teste'));
     expect(actual, isEmpty);
   });
 
@@ -26,10 +23,7 @@ void main() {
       return "1";
     });
 
-    final actual = await repository.validate(User(
-      name: 'teste',
-      password: 'teste',
-    ));
+    final actual = await repository.validate(User(id: 1, password: 'teste'));
     expect(actual, isNotEmpty);
   });
 }

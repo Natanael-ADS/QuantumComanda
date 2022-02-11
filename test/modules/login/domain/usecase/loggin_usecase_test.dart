@@ -15,7 +15,7 @@ void main() {
   testWidgets('erro - loggin usecase ...', (tester) async {
     when(repository.validate(any)).thenThrow(Exception());
 
-    final actual = await usecase(User(name: 'teste', password: 'teste'));
+    final actual = await usecase(User(id: 1, password: 'teste'));
 
     expect(actual, isA<ErrorFound>());
   });
@@ -23,7 +23,7 @@ void main() {
   testWidgets('NotFound - loggin usecase ...', (tester) async {
     when(repository.validate(any)).thenAnswer((realInvocation) async => "");
 
-    final actual = await usecase(User(name: 'teste', password: 'teste'));
+    final actual = await usecase(User(id: 1, password: 'teste'));
 
     expect(actual, isA<NotFound>());
   });
@@ -31,7 +31,7 @@ void main() {
   testWidgets('Success - loggin usecase ...', (tester) async {
     when(repository.validate(any)).thenAnswer((realInvocation) async => "1");
 
-    final actual = await usecase(User(name: 'teste', password: 'teste'));
+    final actual = await usecase(User(id: 1, password: 'teste'));
 
     expect(actual, isA<Success>());
   });

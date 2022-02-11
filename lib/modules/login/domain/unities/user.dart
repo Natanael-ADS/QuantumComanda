@@ -5,8 +5,8 @@ class User {
   bool isLogged;
 
   User({
-    this.id = 0,
-    required this.name,
+    required this.id,
+    this.name = "",
     required this.password,
     this.isLogged = false,
   });
