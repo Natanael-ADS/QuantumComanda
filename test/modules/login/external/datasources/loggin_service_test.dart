@@ -9,10 +9,9 @@ import 'package:mockito/mockito.dart';
 import 'package:quantum_comanda/modules/login/external/datasources/loggin_service.dart';
 import 'package:quantum_comanda/modules/login/infra/models/user_model.dart';
 
+import '../../../const_loggin_test.dart';
 import 'loggin_service_test.mocks.dart';
 
-const String RESPONSE =
-    '{"result": [{"status":"200","codigo":"100","nome":"Quantum Suporte"}]}';
 @GenerateMocks([Dio])
 void main() {
   final req = MockDio();
@@ -31,7 +30,7 @@ void main() {
     when(req.get(any)).thenAnswer((realInvocation) async {
       return Response(
         requestOptions: RequestOptions(path: ""),
-        data: jsonDecode(RESPONSE),
+        data: jsonDecode(ConstLogginTest.RESPONSE_SUCCESS),
         statusCode: 200,
       );
     });
