@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:quantum_comanda/modules/app_widget.dart';
+import 'package:quantum_comanda/modules/core/constants/route_const.dart';
 import 'package:quantum_comanda/modules/login/domain/usecases/loggin_usecase.dart';
 import 'package:quantum_comanda/modules/login/external/datasources/loggin_service.dart';
 import 'package:quantum_comanda/modules/login/infra/repositories/loggin_repository_impl.dart';
+import 'package:quantum_comanda/modules/login/presenter/login_widget.dart';
 
 class AppModule extends Module {
   @override
@@ -19,7 +21,7 @@ class AppModule extends Module {
   @override
   List<ModularRoute> get routes {
     return [
-      ChildRoute("/", child: (_, args) => const AppWidget()),
+      ChildRoute(RouteConst.LOGIN, child: (c, a) => LoginWidget()),
     ];
   }
 }
